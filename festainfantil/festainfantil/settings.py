@@ -75,8 +75,10 @@ WSGI_APPLICATION = 'festainfantil.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'festainfantil',
+        'USER': 'postgres',
+        'PASSWORD': 'trick69',
     }
 }
 
