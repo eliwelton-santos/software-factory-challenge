@@ -39,7 +39,7 @@
                                     {% endif %}
                                     <td>
                                         <a class="btn btn-dark" href="{% url 'item_editar' item.id %}">Editar</a>
-                                        <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='#' : false)">Deletar</a>
+                                        <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{% url 'item_deletar' item.id %}' : false)">Deletar</a>
                                     </td>
                                 </tr>
                                 {% endfor %}
