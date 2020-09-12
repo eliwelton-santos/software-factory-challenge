@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Tema
+from itens.models import Item
 from .forms import TemaForm
 
 
@@ -11,6 +12,12 @@ def redirecionar(request):
 def index(request):
     temas = Tema.objects.all().order_by('-created_at')
     return render(request, 'temas/index.html', {'temas': temas})
+
+
+def detalhe(request, id):
+    tema = get_object_or_404(Tema, pk=id)
+    itens = Item.objects.filter(tema=id)
+    return render(request, 'temas/detalhe.html', {'tema': tema, 'itens': itens})
 
 
 def adicionar(request):
