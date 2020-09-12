@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card">
+                    <ol class="breadcrumb card-header">
+                        <li class="breadcrumb-item"><a href="{% url 'tema_index' %}">Temas</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'tema_detalhe' item.tema.id %}">Detalhe</a></li>
+                        <li class="breadcrumb-item active">Imagem</li>
+                    </ol>
+
+                    <div class="card-body">
+                        <p><b>Item: </b>{{item.nome}}</p>
+                        <img src="{{item.itemPic.url}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

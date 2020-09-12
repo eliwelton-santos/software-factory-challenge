@@ -1,8 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
-
+from .models import Item
 from temas.models import Tema
 from .forms import ItemForm
+
+
+def imagem(request, id):
+    item = get_object_or_404(Item, pk=id)
+    return render(request, 'itens/imagem.html', {'item': item})
 
 
 def adicionar(request, id):

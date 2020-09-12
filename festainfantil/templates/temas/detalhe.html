@@ -21,6 +21,7 @@
                                     <th>#</th>
                                     <th>Nome</th>
                                     <th>Descrição</th>
+                                    <th>Imagem</th>
                                     <th>Ação</th>
                                 </tr>
                             </thead>
@@ -31,6 +32,11 @@
                                     <th scope="row">{{item.id}}</th>
                                     <td>{{item.nome}}</td>
                                     <td>{{item.descricao}}</td>
+                                    {% if item.itemPic %}
+                                        <td><a class="btn btn-link" href="{% url 'item_imagem' item.id %}">{{item.itemPic}}</a></td>
+                                    {% else %}
+                                        <td>Sem imagem cadastrada!</td>
+                                    {% endif %}
                                     <td>
                                         <a class="btn btn-dark" href="#">Editar</a>
                                         <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='#' : false)">Deletar</a>
