@@ -26,3 +26,19 @@ def adicionar(request, id):
     else:
         form = ItemForm()
         return render(request, 'itens/adicionar.html', {'form': form, 'tema': tema})
+
+
+def editar(request, id):
+    item = get_object_or_404(Item, pk=id)
+    form = ItemForm(instance=item)
+    if request.method == 'POST':
+        form = ItemForm(request.POST, request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Item atualizado com sucesso!')
+            return redirect('tema_detalhe', id=item.tema.id)
+        else:
+            messages.warning(request, 'Um ou mais campos foram preenchidos incorretamente!')
+            return render(request, 'itens/editar.html', {'form': form, 'item': item})
+    else:
+        return render(request, 'itens/editar.html', {'form': form, 'item': item})
