@@ -4,6 +4,10 @@ from .models import Tema
 from .forms import TemaForm
 
 
+def redirecionar(request):
+    return redirect('tema_index')
+
+
 def index(request):
     temas = Tema.objects.all().order_by('-created_at')
     return render(request, 'temas/index.html', {'temas': temas})
