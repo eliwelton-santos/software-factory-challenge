@@ -7,7 +7,11 @@ from .forms import ItemForm
 
 def imagem(request, id):
     item = get_object_or_404(Item, pk=id)
-    return render(request, 'itens/imagem.html', {'item': item})
+    if item.itemPic:
+        return render(request, 'itens/imagem.html', {'item': item})
+    else:
+        messages.warning(request, 'Esse item não possui imagem cadastrada!')
+        return redirect('tema_detalhe', id=item.tema.id)
 
 
 def adicionar(request, id):
