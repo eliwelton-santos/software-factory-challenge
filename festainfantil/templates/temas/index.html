@@ -35,7 +35,7 @@
                                     <td>
                                         <a class="btn btn-dark" href="#">Detalhe</a>
                                         <a class="btn btn-dark" href="{% url 'tema_editar' tema.id %}">Editar</a>
-                                        <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='#' : false)">Deletar</a>
+                                        <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{% url 'tema_deletar' tema.id %}' : false)">Deletar</a>
                                     </td>
                                 </tr>
                             {% endfor %}

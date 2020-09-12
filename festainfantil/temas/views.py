@@ -42,3 +42,10 @@ def editar(request, id):
             return render(request, 'temas/editar.html', {'form': form, 'tema': tema})
     else:
         return render(request, 'temas/editar.html', {'form': form, 'tema': tema})
+
+
+def deletar(request, id):
+    tema = get_object_or_404(Tema, pk=id)
+    tema.delete()
+    messages.success(request, 'Tema deletado com sucesso!')
+    return redirect('tema_index')
