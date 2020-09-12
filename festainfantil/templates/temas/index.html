@@ -34,7 +34,7 @@
                                     <td>{{tema.corDestaque}}</td>
                                     <td>
                                         <a class="btn btn-dark" href="#">Detalhe</a>
-                                        <a class="btn btn-dark" href="#">Editar</a>
+                                        <a class="btn btn-dark" href="{% url 'tema_editar' tema.id %}">Editar</a>
                                         <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='#' : false)">Deletar</a>
                                     </td>
                                 </tr>
