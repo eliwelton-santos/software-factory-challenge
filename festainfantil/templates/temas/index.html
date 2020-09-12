@@ -26,19 +26,19 @@
                             </thead>
 
                             <tbody>
-
+                            {% for tema in temas %}
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Penadinho</td>
-                                    <td>R$ 990.00</td>
-                                    <td>Branco</td>
+                                    <th scope="row">{{tema.id}}</th>
+                                    <td>{{tema.nome}}</td>
+                                    <td>R$ {{tema.valorAluguel}}</td>
+                                    <td>{{tema.corDestaque}}</td>
                                     <td>
                                         <a class="btn btn-dark" href="#">Detalhe</a>
                                         <a class="btn btn-dark" href="#">Editar</a>
                                         <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='#' : false)">Deletar</a>
                                     </td>
                                 </tr>
-
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>
