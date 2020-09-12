@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 from temas.views import redirecionar
 
 urlpatterns = [
@@ -22,3 +24,5 @@ urlpatterns = [
     path('', redirecionar, name='redirecionar'),
     path('tema/', include('temas.urls')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
