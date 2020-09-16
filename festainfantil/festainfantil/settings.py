@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'temas',
     'itens',
     'crispy_forms',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
